@@ -1,5 +1,6 @@
 import os , shutil
 
+download = '../../../Downloads'
 path = input("Enter Path :\t")
 files = os.listdir(path)
 
