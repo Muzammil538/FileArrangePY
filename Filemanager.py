@@ -1,15 +1,26 @@
 import os , shutil
 
 download = '../../../Downloads'
-path = input("Enter Path :\t")
-files = os.listdir(path)
+documents = '../../../Documents'
+desktop = '../../../Desktop'
+path = int(input("Enter Path:\n1.Downloads\n2.Documents\n3.Desktop\nEnter the option : "))
+if(path == 1):
+    finalPath = download
+
+elif (path == 2):
+    finalPath = documents
+
+elif (path == 3):
+    finalPath = desktop
+
+files = os.listdir(finalPath)
 
 for file in files:
     name , ext = os.path.splitext(file)
     ext = ext[1:]
 
-    if os.path.exists(path+'/'+ext):
-        shutil.move(path+'/'+file , path+'/'+ext+'/'+file)
+    if os.path.exists(finalPath+'/'+ext):
+        shutil.move(finalPath+'/'+file , finalPath+'/'+ext+'/'+file)
     else:
-        os.mkdir(path+'/'+ext)
-        shutil.move(path+'/'+file , path+'/'+ext+'/'+file)
+        os.mkdir(finalPath+'/'+ext)
+        shutil.move(finalPath+'/'+file , finalPath+'/'+ext+'/'+file)
